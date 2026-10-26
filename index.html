@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <h1>Library desk</h1>
+      <p class="sub">Catalogue, members and loans in one place.</p>
+    </header>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <main class="layout">
+      <section class="panel catalogue" aria-labelledby="h-books">
+        <div class="panel-head">
+          <h2 id="h-books">Books</h2>
+          <input id="search" type="search" placeholder="Search title, author, ISBN or category" aria-label="Search books" />
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="books-body"></tbody>
+          </table>
+        </div>
+        <p id="empty" class="empty" hidden>No books match your search. Try another title, author or ISBN.</p>
+      </section>
+
+      <aside class="side">
+        <section class="panel" aria-labelledby="h-add-book">
+          <h2 id="h-add-book">Add a book</h2>
+          <form id="book-form" novalidate>
+            <label>Title <input name="title" required /></label>
+            <label>Author <input name="author" required /></label>
+            <label>ISBN <input name="isbn" required /></label>
+            <label>Category <input name="category" placeholder="General" /></label>
+            <button type="submit">Add book</button>
+          </form>
+        </section>
+
+        <section class="panel" aria-labelledby="h-add-member">
+          <h2 id="h-add-member">Add a member</h2>
+          <form id="member-form" novalidate>
+            <label>Name <input name="name" required /></label>
+            <label>Email <input name="email" type="email" required /></label>
+            <button type="submit">Add member</button>
+          </form>
+          <h3>Members</h3>
+          <ul id="members-list" class="members"></ul>
+        </section>
+      </aside>
+    </main>
+
+    <dialog id="issue-dialog">
+      <form method="dialog" id="issue-form">
+        <h2>Issue book</h2>
+        <p id="issue-title"></p>
+        <label>Member <select id="issue-member" required></select></label>
+        <div class="row">
+          <button value="cancel" class="ghost">Cancel</button>
+          <button value="ok" id="issue-confirm">Issue book</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>

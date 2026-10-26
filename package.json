@@ -1,0 +1,17 @@
+{
+  "name": "library-management-frontend",
+  "version": "1.0.0",
+  "description": "Frontend tooling for the Library Management System (Flask backend serves the app).",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write \"static/*.html\" \"static/*.css\" \"static/*.js\"",
+    "lint": "eslint static/script.js",
+    "dev": "live-server static --port=5500 --proxy=/api:http://127.0.0.1:5000/api"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.0"
+  }
+}
